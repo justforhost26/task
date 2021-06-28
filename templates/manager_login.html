@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% if messages %}
+{% for message in messages %}
+    <center>
+<div class="alert {{ message.tags }} m-2 " style="text-transform:uppercase" id="msg" role="alert" \>
+    {{ message }}
+
+</div></center>
+    {% endfor %}
+{% endif %}
+<!--start form-->
+  <br>
+<div class="container shadow p-3 " style="width:50%">
+  <form class="row g-3 " method="post" action="{% url 'manager_login' %}">
+      {% csrf_token %}
+<h3 style="text-align: center">Manager Login</h3>
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">User ID</label>
+    <input type="text" name="userid" class="form-control" id="inputAddress" placeholder="Enter heading od website">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="inputAddress" placeholder="Enter heading od website">
+  </div>
+
+     <center>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Login</button>
+  </div>
+         </center>
+</form>
+    </div>
+  <!--End form-->
+{% endblock %}

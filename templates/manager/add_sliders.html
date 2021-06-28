@@ -1,0 +1,42 @@
+{% extends 'manager/base.html' %}
+
+{% block content %}
+    {%  include 'manager/messages.html' %}
+<!--start form-->
+  <br>
+<div class="container shadow p-3 " style="width:50%">
+  <form class="row g-3 " method="post" action="{% url 'add_sliders' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+<h3 style="text-align: center">Add Sliders</h3>
+      <div class="col-12">
+    <label for="inputState" class="form-label">Website Name</label>
+    <select id="inputState" name="website" class="form-select">
+      <option selected disabled>Select website Name</option>
+      {% for data in datas %}
+          <option value="{{ data.name_of_website }}">{{ data.name_of_website }}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Slider Image 1</label>
+    <input type="file" name="Slider1" class="form-control" id="inputAddress" >
+  </div>
+        <div class="col-12">
+    <label for="inputAddress" class="form-label">Slider Image 2</label>
+    <input type="file" name="Slider2" class="form-control" id="inputAddress" >
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Slider Image 3</label>
+    <input type="file" name="Slider3" class="form-control" id="inputAddress">
+  </div>
+
+     <center>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+         </center>
+</form>
+    </div>
+  <!--End form-->
+{% endblock %}
