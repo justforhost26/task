@@ -28,4 +28,4 @@ urlpatterns = [
     path('',include('task.urls')),
     path('Manager_login', views.manager_login,name="manager_login"),
     path('Manager/',include('manager.urls')),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
