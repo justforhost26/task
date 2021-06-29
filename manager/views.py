@@ -61,7 +61,7 @@ def add_images(request):
          messages.error(request,"Already Added")
          return redirect(add_images)
       else:
-         data = Images(website=WebsiteName.objects.get(id=website_id),image=image1,image2=image2,image3=image3,image4=image4,image5=image5,image6=image6)
+         data = Images(website=WebsiteName.objects.get(id=website_id),image1=image1,image2=image2,image3=image3,image4=image4,image5=image5,image6=image6)
          data.save()
          messages.success(request, "Add Successfullly")
          return redirect(add_images)
